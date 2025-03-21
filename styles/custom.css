@@ -28,4 +28,5 @@ body {
   #welcome_title:hover {
     font-variation-settings: "wght" 100, "ital" 0;
     text-shadow: none;
+    font-weight: bolder;
   }

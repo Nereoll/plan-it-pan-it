@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/0d62478a85.js" crossorigin="anonymous"></script>
+    <link href="styles/custom.css" rel="stylesheet">
+</head>
+<body class="bg-[#EBEBC8]">
+    <header></header>
+    <div class=" items-center w-full h-full flex flex-col absolute top-32">
+        <h1 class="self-center text-4xl font-bold"> Write what's ingredient are in your fridge and let us do the rest </h1>
+      	<div class="w-[90%] h-[90%] rounded-lg shadow-lg flex flex-col  gap-10">
+            <div class="flex justify-center items-center h-full gap-10">
+                <div class="flex flex-col w-1/3 justify-center gap-2 ">
+                    <div class="flex items-center justify-center">
+                        <input type="text" id="ingredientInput" class=" w-3/4 self-center px-4 py-2 rounded-lg">
+                        <button class="font-bold ml-7 rounded-xl bg-[#E8E25B] px-4 py-2">+</button>
+                    </div>
+                    <div id="ingredient_container" class="flex flex-col items-center gap-2 h-[20%] w-[80%] bg-[#E8E25B] rounded-xl self-center overflow-auto">
+                    </div>
+                </div>
+                ➡
+                <div class="flex flex-col">
+                    
+                    <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded self-center w-96">
+                        <img src="/assets/images/whats_in_my_fridge.jpg" alt="fridge" class="w-96 h-96">
+                        Generate
+                    </button>
+                </div>
+                ➡
+                <div class="self-center w-[80%] h-[50%] bg-[#E8E25B] rounded-lg overflow-auto" id="recipe_container">
+                    <div class=" flex items-center gap-2 m-4">
+                        <img src="/r2d2.png" alt="testImg" class=" w-32 h-32">
+                        <div class="pl-10  flex flex-col self-center gap-4">
+                            <p class="w-3/4 text-lg  font-bold">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium commodi modi quaerat voluptas! Praesentium, voluptatibus? Rerum officiis expedita neque, veniam reiciendis quidem, quibusdam blanditiis nulla corrupti quam quos. Mollitia.
+                            </p>
+                            <div class="flex gap-2">
+                            <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold rounded self-center px-2">Add to shopping list</button>
+                            <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold rounded self-center px-2">Add to meal planner</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+			
+
+    	</div>
+      </div>
+    <script src="/scripts/layout.js"></script> <!-- Le fichier JavaScript pour gérer le layout -->
+    <script src="/scripts/ingredient.js"></script> <!-- Le fichier JavaScript pour gérer la page meal_planner -->
+</body>
+</html>
