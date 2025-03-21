@@ -12,9 +12,9 @@
     <header></header>
     <div class="items-center w-[100vw] h-full flex flex-col absolute top-32 gap-4">
         <h1 class="self-center text-4xl font-bold"> Here you can discover a new random Meal </h1>
-        <div class="w-[90%] h-[90%] rounded-lg shadow-lg flex flex-col   gap-2">
-            <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded self-center w-1/2">Generate</button>
-            <div class="w-3/4 justify-center flex self-center m-4 ">
+        <div class="w-[90%] h-[90%] rounded-lg shadow-lg flex flex-col gap-2">
+            <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded self-center w-1/2" id="generator">Generate</button>
+            <div class="w-3/4 justify-center flex self-center m-4 " id="discover_container">
                 <img src="/r2d2.png" alt="testImg" class=" w-32 h-32">
                 <div class="pl-10 flex flex-col gap-4 w-[50%]">
                     <button class="text-black self-end">
@@ -23,7 +23,7 @@
                     <p class="text-lg font-bold ">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium commodi modi quaerat voluptas! Praesentium, voluptatibus? Rerum officiis expedita neque, veniam reiciendis quidem, quibusdam blanditiis nulla corrupti quam quos. Mollitia.
                     </p>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2" id="ingredient_container">
                         <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold rounded self-center px-2">ingredient1</button>
                         <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold rounded self-center px-2">ingredient2</button>
                     </div>
@@ -32,5 +32,6 @@
         </div>
     </div>
     <script src="/scripts/layout.js"></script> <!-- Le fichier JavaScript pour gérer le layout -->
+    <script src="/api/themealDB/discover.js"></script>
 </body>
 </html>
