@@ -12,20 +12,20 @@
     <header></header>
     <div class=" items-center w-full h-full flex flex-col absolute top-32">
       <h1 class="self-center text-4xl font-bold"> Vos envies </h1>
-      	<div class="w-[90%] h-[90%] rounded-lg shadow-lg flex flex-col  gap-10">
+      	<div class="w-[90%] h-[90%] rounded-lg shadow-lg flex flex-col justify-center gap-10">
         	<div class="flex justify-center gap-10">
-          <div>
-            <p class="text-xl"><i class="fa-solid fa-burger "></i> type of food </p>
-            <input type="text" class="rounded-lg px-4 py-2">
-          </div>
-          <div>
-            <p class="text-xl"><i class="fa-solid fa-calendar-week"></i> how many days? </p>
-            <input type="text" class="rounded-lg px-4 py-2">
-          </div>
-          <div>
-            <p class="text-xl"><i class="fa-solid fa-earth-europe"></i> where from? </p>
-            <input type="text" class="rounded-lg px-4 py-2  ">
-          </div>
+				<div>
+					<p class="text-xl"><i class="fa-solid fa-burger "></i> type of food </p>
+					<input type="text" class="rounded-lg px-4 py-2">
+				</div>
+				<div>
+					<p class="text-xl"><i class="fa-solid fa-calendar-week"></i> how many days? </p>
+					<input type="text" class="rounded-lg px-4 py-2">
+				</div>
+				<div>
+					<p class="text-xl"><i class="fa-solid fa-earth-europe"></i> where from? </p>
+					<input type="text" class="rounded-lg px-4 py-2  ">
+				</div>
         	</div>
         	<div class="flex items-center justify-center w-full">
 				<input type="text" id="ingredientInput" class="w-[30%] self-center px-4 py-2 rounded-lg">
@@ -33,7 +33,13 @@
 			</div>
 			<div id="ingredient_container" class="flex flex-col items-center gap-2 h-[20%] w-[80%] bg-[#E8E25B] rounded-xl self-center overflow-auto">
 			</div>
-			<button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded self-center w-1/2">Generate</button>
+			<div class="gap-4 justify-center self-center flex w-[80%] ">
+				<button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded w-1/2">Generate</button>
+				<button class="text-black">
+					<i class="fa-regular fa-bookmark"></i>
+				</button>
+			</div>
+
 			<div class="self-center w-[80%] h-[50%] bg-[#E8E25B] rounded-lg overflow-auto">
 				<div class=" flex items-center gap-2 m-4">
 					<img src="/r2d2.png" alt="testImg" class=" w-32 h-32">
