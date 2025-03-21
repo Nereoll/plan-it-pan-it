@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ingredients.push(`${ingredient}`);
             }
         }
-        ingredientContainer.innerHTML = ingredients.map(ing => `<button class="bg-[#AFF099] text-black font-bold rounded self-center w-40 h-16 px-2">${ing}</button>`).join('');
+        ingredientContainer.innerHTML = ingredients.map(ing => `<button class="bg-[#E8E25B] text-black font-bold rounded self-center w-40 h-16 px-2">${ing}</button>`).join('');
 
     }
 

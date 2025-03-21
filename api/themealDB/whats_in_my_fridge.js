@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		card.appendChild(img);
 
 		const content = document.createElement('div');
-		content.className = 'pl-10 flex flex-col self-center gap-4';
+		content.className = 'w-full pl-10 flex flex-col self-center gap-4';
 
 		const bookmarkButton = document.createElement('button');
 		bookmarkButton.className = 'text-black self-end';
