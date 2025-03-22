@@ -19,7 +19,7 @@
                         <input type="text" id="ingredientInput" class=" w-3/4 self-center px-4 py-2 rounded-lg">
                         <button class="font-bold ml-7 rounded-xl bg-[#E8E25B] px-4 py-2">+</button>
                     </div>
-                    <div id="ingredient_container" class="flex flex-col items-center gap-2 h-[20%] w-[80%] bg-[#E8E25B] rounded-xl self-center overflow-auto">
+                    <div id="ingredient_container" class="flex flex-col items-center gap-2 h-[20%] w-[80%] self-center overflow-auto">
                     </div>
                 </div>
                 ➡
@@ -32,7 +32,7 @@
                 ➡
                 <div class="self-center w-[80%] h-[50%] bg-[#E8E25B] rounded-lg overflow-auto" id="recipe_container">
                     <div class=" flex items-center gap-2 m-4">
-                        <img src="/images/r2d2.png" alt="testImg" class=" w-32 h-32" id="recipe_img">
+                        <img src="/assets/images/r2d2.png" alt="testImg" class=" w-32 h-32" id="recipe_img">
                         <div class="pl-10 w-full flex flex-col self-center gap-4">
                             <button class="text-black self-end">
                                 <i class="fa-regular fa-bookmark"></i>
@@ -48,7 +48,8 @@
     	</div>
       </div>
     <script src="/scripts/layout.js"></script> <!-- Le fichier JavaScript pour gérer le layout -->
-    <script type="module" src="/scripts/ingredient.js"></script> <!-- Le fichier JavaScript pour gérer la page meal_planner -->
+    <script type="module" src="/modules/ingredient.js"></script> <!-- Le fichier JavaScript pour gérer la page meal_planner -->
+    <script type="module" src="/modules/favoris.js"></script> <!-- Le fichier JavaScript pour gérer les favoris -->
     <script type="module" src="/api/themealDB/whats_in_my_fridge.js"></script> <!-- Le fichier JavaScript pour gérer la page whats_in_my_fridge -->
 </body>
 </html>

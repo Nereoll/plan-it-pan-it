@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meal Planner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/0d62478a85.js" crossorigin="anonymous"></script>
-  <link href="styles/custom.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/0d62478a85.js" crossorigin="anonymous"></script>
+    <link href="styles/custom.css" rel="stylesheet">
 </head>
 <body class="bg-[#EBEBC8]">
     <header></header>
-    <div id="app" class="w-full h-full flex flex-col align-center justify-center absolute top-24">
-        <p class="flex self-center" id="welcome_title">Essayez une de nos fonctionnalités</p>
-        <section id="showcase" class="h-full">
-            <div class="flex justify-center items-center h-full align-middle gap-10">
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <a href="pages/meal_planner.html" class="flex flex-col items-center">
-                        <img src="assets/images/meal_planner.jpg" alt="meal_planner" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">Meal Planner</p>
-                    </a>
-                </div>
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <a href="pages/whats_in_my_fridge.html" class="flex flex-col items-center">
-                        <img src="assets/images/whats_in_my_fridge.jpg" alt="whats_in_my_fridge" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">What's in my fridge</p>
-                    </a>
-                </div>
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <a href="pages/discover.html" class="flex flex-col items-center">
-                        <img src="assets/images/discover.jpg" alt="discover" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">Discover</p>
-                    </a>
-                </div>
-                <!--
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <a href="pages/what_should_i_make.html" class="flex flex-col items-center">
-                        <img src="assets/images/what_should_i_make.png" alt="what_should_i_make" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">What should I make</p>
-                    </a>
-                </div>
-            -->
-            </div>
-        </section>
+    <div id="app" class="w-full h-full flex flex-col absolute top-64">
+        <h1 class="text-7xl font-bold text-center mb-4">Welcome to Plan it & Pan it</h1>
+        <p class="text-3xl text-center leading-relaxed">
+            Welcome to <strong>Plan it & Pan it</strong> – 
+            your all-in-one meal planning and recipe discovery app! With Plan it & Pan it,
+            you simply enter the ingredients in your fridge,
+            and our smart system uses TheMealDB API to generate
+            delicious recipe options tailored to your pantry.
+            Whether you're planning meals for the week or looking to try
+            something new, our app helps you filter, save,
+            and manage your favorite recipes directly in your browser.
+            Enjoy a seamless experience with no duplicate favorites,
+            a searchable favorites list,
+            and an intuitive interface that makes meal planning fun and effortless.
+            Dive into your culinary adventure today and let your ingredients inspire your next great meal!
+          </p>
+          <a href="/pages/home.html" class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded self-center mt-4">
+            Get Started
+          </a>
     </div>
-
     <script src="/scripts/layout.js"></script> <!-- Le fichier JavaScript pour gérer le layout -->
-    <script src="/scripts/main.js"></script>  <!-- Le fichier de logique principale -->
 </body>
 </html>

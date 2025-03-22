@@ -1,4 +1,6 @@
-import { getListIngredients } from '/scripts/ingredient.js';
+import { getListIngredients } from '/modules/ingredient.js';
+import { addFavori, removeFavori } from '/modules/favoris.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const buttonGenerate = document.getElementById('btnGenerateInMyFridge');
@@ -20,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		const bookmarkButton = document.createElement('button');
 		bookmarkButton.className = 'text-black self-end';
 		bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+
+    // Ajout de l'événement pour gérer le favori
+    bookmarkButton.addEventListener('click', () => {
+      addFavori(meal);
+      bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+    });
+
 		content.appendChild(bookmarkButton);
 
 		const description = document.createElement('p');
@@ -29,10 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const buttonsContainer = document.createElement('div');
 		buttonsContainer.className = 'flex gap-2';
+    content.appendChild(buttonsContainer);
 
-		content.appendChild(buttonsContainer);
-		card.appendChild(content);
-
+    card.appendChild(content);
 		return card;
 	}
 
