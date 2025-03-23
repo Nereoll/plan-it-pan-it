@@ -21,7 +21,7 @@ function displayFavorites(favorites) {
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="w-32 h-32 rounded-lg mb-2">
       <p class="text-lg font-bold mb-2 text-center">${meal.strMeal}</p>
       <button class="bg-red-500 text-white px-3 py-1 rounded remove-fav" data-id="${meal.idMeal}">
-        Supprimer
+        Delete
       </button>
     `;
     favoritesContainer.appendChild(card);

@@ -11,35 +11,43 @@
 <body class="bg-[#EBEBC8]">
     <header></header>
     <div id="app" class="w-full h-full flex flex-col align-center justify-center absolute top-24">
-        <p class="flex self-center" id="welcome_title">Essayez une de nos fonctionnalités</p>
+        <p class="flex self-center" id="welcome_title">Try one of our services</p>
         <section id="showcase" class="h-full">
             <div class="flex justify-center items-center h-full align-middle gap-10">
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                <!-- Meal Planner -->
+                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300 relative group">
                     <a href="/pages/meal_planner.html" class="flex flex-col items-center">
-                        <img src="/assets/images/meal_planner.jpg" alt="meal_planner" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">Meal Planner</p>
+                        <img src="/assets/images/meal_planner.jpg" alt="meal_planner" 
+                            class="w-96 h-96 object-cover transition-opacity duration-300 group-hover:opacity-0">
+                        <p class="absolute inset-0 flex items-center justify-center text-center font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Plan your meals for the week with ease.
+                            Select what type of food you want and let us handle the rest 😁
+                        </p>
                     </a>
                 </div>
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
+
+                <!-- What's in my Fridge -->
+                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300 relative group">
                     <a href="/pages/whats_in_my_fridge.html" class="flex flex-col items-center">
-                        <img src="/assets/images/whats_in_my_fridge.jpg" alt="whats_in_my_fridge" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">What's in my fridge</p>
+                        <img src="/assets/images/whats_in_my_fridge.jpg" alt="whats_in_my_fridge" 
+                            class="w-96 h-96 object-cover transition-opacity duration-300 group-hover:opacity-0">
+                        <p class="absolute inset-0 flex items-center justify-center text-center font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Find meals based on what you already have!
+                            Just choose your ingredients and we will take care of finding the perfect recipe for you 🍳
+                        </p>
                     </a>
                 </div>
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
+
+                <!-- Discover -->
+                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300 relative group">
                     <a href="/pages/discover.html" class="flex flex-col items-center">
-                        <img src="/assets/images/discover.jpg" alt="discover" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">Discover</p>
+                        <img src="/assets/images/discover.jpg" alt="discover" 
+                            class="w-96 h-96 object-cover transition-opacity duration-300 group-hover:opacity-0">
+                        <p class="absolute inset-0 flex items-center justify-center text-center font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Want something new? Discover new recipes from around the world! 🌍 we leave you the cooking part
+                        </p>
                     </a>
                 </div>
-                <!--
-                <div class="flex flex-col items-center bg-white p-2 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <a href="pages/what_should_i_make.html" class="flex flex-col items-center">
-                        <img src="assets/images/what_should_i_make.png" alt="what_should_i_make" class="w-96 h-96 hover:scale-105 transition-transform duration-300">
-                        <p class="text-center font-bold text-xl z-10">What should I make</p>
-                    </a>
-                </div>
-            -->
             </div>
         </section>
     </div>

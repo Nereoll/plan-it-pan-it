@@ -1,4 +1,4 @@
-import { addFavori, removeFavori } from '/modules/favoris.js';
+import { addFavori, removeFavori, isFavoris } from '/modules/favoris.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const daysSelect = document.getElementById('daysSelect'); // Selecteur du nombre de jours
     const originSelect = document.getElementById('originSelect'); // Sélecteur des origines
     const container = document.getElementById('recipe_container'); // Conteneur des repas
-    
+
     const buttonGenerate = document.getElementById('buttonGenerate'); // Bouton générate
 
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.meals) {
                 data.meals.forEach(meal => {
                     const option = document.createElement("option");
-                    option.value = meal.strCategory;
+                    option.value = meal.strCategory; 
                     option.textContent = meal.strCategory;
                     categorySelect.appendChild(option);
                 });
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Erreur lors de la récupération des catégories :", error);
         }
     }
-
     async function getOrigin() {
         try {
             const response = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
@@ -85,23 +84,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 data = { meals }; // Stocker les repas obtenus
             }
-
             if (!data.meals) {
                 console.error("Aucun repas trouvé !");
+                container.innerHTML = '';
                 return [];
             }
 
+            if (data.meals.length === 0){
+                container.innerHTML = '';
+                const emptyCard = createEmptyRecipeCard();
+                container.appendChild(emptyCard);
+            }
+            else{
             // Mélanger les repas aléatoirement et en prendre "count"
             const shuffledMeals = data.meals.sort(() => 0.5 - Math.random());
             const selectedMeals = shuffledMeals.slice(0, count);
 
             displayMeals(selectedMeals); // 📌 Affichage des repas
-
+            }
             return selectedMeals;
         } catch (error) {
-            console.error("Erreur lors de la récupération des repas :", error);
             return [];
         }
+    }
+
+    function createEmptyRecipeCard() {
+        const card = document.createElement('div');
+        card.className = 'flex items-center gap-2 m-4';
+
+        const message = document.createElement('p');
+        message.className = 'text-lg font-bold';
+        message.textContent = 'No meals found for the selected criteria.';
+        card.appendChild(message);
+
+        return card;
     }
 
     function createRecipeCard(meal) {
@@ -119,14 +135,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const bookmarkButton = document.createElement('button');
 		bookmarkButton.className = 'text-black self-end';
-		bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
-
-        // Ajout de l'événement pour gérer le favori
+        
+        if (isFavoris(meal.idMeal)) {
+            bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+          } else{
+            bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+          }
+      
+          // Ajout de l'événement pour gérer le favori
         bookmarkButton.addEventListener('click', () => {
-        addFavori(meal);
-        bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+            if (isFavoris(meal.idMeal)) {
+                removeFavori(meal.idMeal);
+                bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+            } else {
+                addFavori(meal);
+                bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+            }
         });
-
 		content.appendChild(bookmarkButton);
 
 		const description = document.createElement('p');
@@ -149,8 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(recipeCard);
         });
     }
-
-
     buttonGenerate.addEventListener('click', () => {
         const categoryValue = categorySelect.value;
         const originValue = originSelect.value;

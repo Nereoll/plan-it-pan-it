@@ -20,10 +20,22 @@ export function addFavori(meal) {
     }
 }
 
-// 🔹 Supprimer un favori
+// 🔹 Supprimer un favori avec confirmation
 export function removeFavori(mealId) {
-    let favoris = getFavoris();
-    favoris = favoris.filter(fav => fav.idMeal !== mealId); // Filtrer pour enlever l'élément
-    localStorage.setItem(FAVORIS_KEY, JSON.stringify(favoris)); // Sauvegarde
-    console.log(`Supprimé des favoris : ${mealId}`);
+    const confirmation = confirm("Are you sure you want to remove this meal from your favorites?");
+    
+    if (confirmation) {
+        let favoris = getFavoris();
+        favoris = favoris.filter(fav => fav.idMeal !== mealId); // Filtrer pour enlever l'élément
+        localStorage.setItem(FAVORIS_KEY, JSON.stringify(favoris)); // Sauvegarde
+        console.log(`Supprimé des favoris : ${mealId}`);
+    } else {
+        console.log("Suppression annulée.");
+    }
+}
+
+// 🔹 Vérifier si un meal est dans les favoris
+export function isFavoris(mealId) {
+    const favoris = getFavoris();
+    return favoris.some(fav => fav.idMeal === mealId);
 }

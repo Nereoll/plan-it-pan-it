@@ -1,10 +1,11 @@
 import { getListIngredients } from '/modules/ingredient.js';
-import { addFavori, removeFavori } from '/modules/favoris.js';
+import { addFavori, removeFavori, isFavoris } from '/modules/favoris.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
   const buttonGenerate = document.getElementById('btnGenerateInMyFridge');
   const container = document.getElementById('recipe_container');
+  const ingredientInput = document.getElementById('ingredientInput');
 
 	function createRecipeCard(meal) {
 		const card = document.createElement('div');
@@ -21,13 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const bookmarkButton = document.createElement('button');
 		bookmarkButton.className = 'text-black self-end';
-		bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+    if (isFavoris(meal.idMeal)) {
+      bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+    } else{
+      bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+    }
 
     // Ajout de l'événement pour gérer le favori
     bookmarkButton.addEventListener('click', () => {
-      addFavori(meal);
-      bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+      if (isFavoris(meal.idMeal)) {
+        removeFavori(meal.idMeal);
+        bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+      } else {
+        addFavori(meal);
+        bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+      }
+
     });
+
 
 		content.appendChild(bookmarkButton);
 
@@ -44,15 +56,53 @@ document.addEventListener('DOMContentLoaded', () => {
 		return card;
 	}
 
-	async function displayMeals(ingredients) {
-		const meals = await getMealFromIngredients(ingredients);
-		container.innerHTML = '';
-		meals.forEach(meal => {
-			const recipeCard = createRecipeCard(meal);
-			container.appendChild(recipeCard);
-		});
-	}
 
+  async function displayMeals(ingredients) {
+    container.innerHTML = ''; // Vider le conteneur avant d'afficher les résultats
+
+    if (ingredients.length === 0) {
+        const message = document.createElement('p');
+        message.className = 'text-center text-xl font-bold text-gray-700';
+        message.textContent = "Please add at least one ingredient to find meals!";
+        container.appendChild(message);
+        return;
+    }
+
+    const meals = await getMealFromIngredients(ingredients);
+
+    if (meals.length === 0) {
+        const message = document.createElement('p');
+        message.className = 'text-center text-xl font-bold text-gray-700';
+        message.textContent = "No meals found for the selected ingredients. Try adding less!";
+        container.appendChild(message);
+        return;
+    }
+
+    meals.forEach(meal => {
+        const recipeCard = createRecipeCard(meal);
+        container.appendChild(recipeCard);
+    });
+}
+
+  async function getIngredient(){
+    try {
+        const response = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
+        const data = await response.json();
+
+        // Vérifier si les données existent
+        if (data.meals) {
+            data.meals.forEach(meal => {
+                const option = document.createElement("option");
+                option.value = meal.strIngredient; 
+                option.textContent = meal.strIngredient;
+                ingredientInput.appendChild(option);
+            });
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération des ingredients :", error);
+    }
+}
+getIngredient(); // appel api au chargement de la page
 
   async function getMealFromIngredients(ingredients) {
     try {
@@ -97,3 +147,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	displayMeals(listIngredients);
   });
 });
+
