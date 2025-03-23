@@ -1,4 +1,4 @@
-import { addFavori, removeFavori, isFavoris } from '/modules/favoris.js';
+import { addFavori, removeFavori, isFavoris } from '../../modules/favoris.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 

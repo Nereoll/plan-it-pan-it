@@ -1,5 +1,5 @@
-import { getListIngredients } from '/modules/ingredient.js';
-import { addFavori, removeFavori, isFavoris } from '/modules/favoris.js';
+import { getListIngredients } from '../../modules/ingredient.js';
+import { addFavori, removeFavori, isFavoris } from '../../modules/favoris.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {

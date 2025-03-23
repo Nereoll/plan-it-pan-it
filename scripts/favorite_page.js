@@ -1,6 +1,5 @@
-
 // Importer les fonctions de gestion des favoris
-import { getFavoris, removeFavori } from '/modules/favoris.js';
+import { getFavoris, removeFavori } from '../modules/favoris.js';
 
 // Fonction pour afficher les favoris dans le conteneur
 function displayFavorites(favorites) {

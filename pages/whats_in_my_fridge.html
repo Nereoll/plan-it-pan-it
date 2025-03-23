@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fridge</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/0d62478a85.js" crossorigin="anonymous"></script>
-    <link href="/styles/custom.css" rel="stylesheet">
+    <link href="../styles/custom.css" rel="stylesheet">
 </head>
 <body class="bg-[#EBEBC8]">
     <header></header>
@@ -30,14 +32,14 @@
                 ➡
                 <div class="flex flex-col">
                     <button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded self-center w-96" id="btnGenerateInMyFridge">
-                        <img src="/assets/images/whats_in_my_fridge.jpg" alt="fridge" class="w-96 h-96">
+                        <img src="../assets/images/whats_in_my_fridge.jpg" alt="fridge" class="w-96 h-96">
                         Generate
                     </button>
                 </div>
                 ➡
                 <div class="self-center w-[80%] h-[50%] bg-[#E8E25B] rounded-lg overflow-auto" id="recipe_container">
                     <div class=" flex items-center gap-2 m-4">
-                        <img src="/assets/images/r2d2.png" alt="testImg" class=" w-32 h-32" id="recipe_img">
+                        <img src="../assets/images/r2d2.png" alt="testImg" class=" w-32 h-32" id="recipe_img">
                         <div class="pl-10 w-full flex flex-col self-center gap-4">
                             <button class="text-black self-end">
 
@@ -52,9 +54,9 @@
 
     	</div>
       </div>
-    <script src="/scripts/layout.js"></script> <!-- Le fichier JavaScript pour gérer le layout -->
-    <script type="module" src="/modules/ingredient.js"></script> <!-- Le fichier JavaScript pour gérer la page meal_planner -->
-    <script type="module" src="/modules/favoris.js"></script> <!-- Le fichier JavaScript pour gérer les favoris -->
-    <script type="module" src="/api/themealDB/whats_in_my_fridge.js"></script> <!-- Le fichier JavaScript pour gérer la page whats_in_my_fridge -->
+    <script src="../scripts/layout.js"></script> <!-- Le fichier JavaScript pour gérer le layout -->
+    <script type="module" src="../modules/ingredient.js"></script> <!-- Le fichier JavaScript pour gérer la page meal_planner -->
+    <script type="module" src="../modules/favoris.js"></script> <!-- Le fichier JavaScript pour gérer les favoris -->
+    <script type="module" src="../api/themealDB/whats_in_my_fridge.js"></script> <!-- Le fichier JavaScript pour gérer la page whats_in_my_fridge -->
 </body>
 </html>
