@@ -14,9 +14,6 @@ export function addFavori(meal) {
     if (!favoris.some(fav => fav.idMeal === meal.idMeal)) {
         favoris.push(meal);
         localStorage.setItem(FAVORIS_KEY, JSON.stringify(favoris)); // Sauvegarde
-        console.log(`Ajouté aux favoris : ${meal.strMeal}`);
-    } else {
-        console.log(`Déjà en favori : ${meal.strMeal}`);
     }
 }
 
@@ -28,9 +25,6 @@ export function removeFavori(mealId) {
         let favoris = getFavoris();
         favoris = favoris.filter(fav => fav.idMeal !== mealId); // Filtrer pour enlever l'élément
         localStorage.setItem(FAVORIS_KEY, JSON.stringify(favoris)); // Sauvegarde
-        console.log(`Supprimé des favoris : ${mealId}`);
-    } else {
-        console.log("Suppression annulée.");
     }
 }
 

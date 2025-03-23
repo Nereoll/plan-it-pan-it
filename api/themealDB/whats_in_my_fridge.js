@@ -116,7 +116,6 @@ getIngredient(); // appel api au chargement de la page
       }
 
       if (meals.length === 0) {
-        console.log(`Aucun plat trouvé pour les ingrédients : ${ingredients.join(", ")}`);
         return [];
       }
 
@@ -128,11 +127,9 @@ getIngredient(); // appel api au chargement de la page
       const filteredMeals = meals.filter(meal => mealsCount[meal.idMeal] === ingredients.length);
 
 	  if (filteredMeals.length === 0) {
-        console.log(`Aucun plat trouvé pour les ingrédients : ${ingredients.join(", ")}`);
         return [];
       }
 
-      console.log(`Plats contenant ${ingredients.join(", ")} :`, filteredMeals);
       return filteredMeals;
     } catch (error) {
       console.error("Erreur lors de la récupération des plats :", error);
@@ -142,7 +139,6 @@ getIngredient(); // appel api au chargement de la page
 
   buttonGenerate.addEventListener('click', () => {
     const listIngredients = getListIngredients(); // 🔄 Récupérer la liste mise à jour
-    console.log("Ingrédients sélectionnés :", listIngredients);
     getMealFromIngredients(listIngredients);
 	displayMeals(listIngredients);
   });

@@ -8,7 +8,7 @@ function displayFavorites(favorites) {
 
   if (favorites.length === 0) {
     favoritesContainer.innerHTML =
-      '<p class="text-xl">Aucun favori pour le moment.</p>';
+      '<p class="text-xl">No favorites yet.</p>';
     return;
   }
 
