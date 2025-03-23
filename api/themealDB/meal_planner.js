@@ -1,4 +1,7 @@
+import { addFavori, removeFavori } from '/modules/favoris.js';
+
 document.addEventListener('DOMContentLoaded', () => {
+
     const categorySelect = document.getElementById('categorySelect'); // Sélecteur des catégories
     const daysSelect = document.getElementById('daysSelect'); // Selecteur du nombre de jours
     const originSelect = document.getElementById('originSelect'); // Sélecteur des origines
@@ -52,12 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getMealPlaning(category, origin, count){
         try {
             let data
-            if (category || origin){
-                let url = "https://www.themealdb.com/api/json/v1/1/filter.php?";
-                if (origin) url += `a=${origin}`;
-                if (category) url += `&c=${category}`;
-                
-                const response = await fetch(url);
+            // Vérifier les filtres (catégorie et origine)
+            if (category && origin) {
+                // Si les deux sont définis, faire deux requêtes et fusionner les résultats
+                const categoryResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+                const categoryData = await categoryResponse.json();
+                const originResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${origin}`);
+                const originData = await originResponse.json();
+
+                // Fusionner les résultats des deux filtres
+                const mergedMeals = categoryData.meals.filter(meal => originData.meals.some(m => m.idMeal === meal.idMeal));
+                data = { meals: mergedMeals };
+            } else if (category) {
+                // Si seulement la catégorie est définie
+                const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+                data = await response.json();
+            } else if (origin) {
+                // Si seulement l'origine est définie
+                const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${origin}`);
                 data = await response.json();
             }else{
                 let meals = [];
@@ -90,40 +105,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createRecipeCard(meal) {
-        const card = document.createElement('div');
-        card.className = 'flex items-center gap-2 m-4';
+		const card = document.createElement('div');
+		card.className = 'flex items-center gap-2 m-4';
 
-        const img = document.createElement('img');
-        img.src = meal.strMealThumb;
-        img.alt = meal.strMeal;
-        img.className = 'w-32 h-32';
-        card.appendChild(img);
+		const img = document.createElement('img');
+		img.src = meal.strMealThumb;
+		img.alt = meal.strMeal;
+		img.className = 'w-32 h-32';
+		card.appendChild(img);
 
-        const content = document.createElement('div');
-        content.className = 'w-full pl-10 flex flex-col self-center gap-4';
+		const content = document.createElement('div');
+		content.className = 'w-full pl-10 flex flex-col self-center gap-4';
 
-        const bookmarkButton = document.createElement('button');
-        bookmarkButton.className = 'text-black self-end';
-        bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+		const bookmarkButton = document.createElement('button');
+		bookmarkButton.className = 'text-black self-end';
+		bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
 
+        // Ajout de l'événement pour gérer le favori
         bookmarkButton.addEventListener('click', () => {
-            bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+        addFavori(meal);
+        bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
         });
 
-        content.appendChild(bookmarkButton);
+		content.appendChild(bookmarkButton);
 
-        const description = document.createElement('p');
-        description.className = 'w-3/4 text-lg font-bold';
-        description.textContent = meal.strMeal;
-        content.appendChild(description);
+		const description = document.createElement('p');
+		description.className = 'w-3/4 text-lg font-bold';
+		description.textContent = meal.strMeal;
+		content.appendChild(description);
 
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.className = 'flex gap-2';
+		const buttonsContainer = document.createElement('div');
+		buttonsContainer.className = 'flex gap-2';
         content.appendChild(buttonsContainer);
 
         card.appendChild(content);
-        return card;
-    }
+		return card;
+	}
 
     function displayMeals(meals) {
         container.innerHTML = ''; // 📌 Vide le container avant d'afficher de nouveaux repas
