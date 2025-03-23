@@ -16,15 +16,27 @@
         	<div class="flex justify-center gap-10">
 				<div>
 					<p class="text-xl"><i class="fa-solid fa-burger "></i> type of food </p>
-					<input type="text" class="rounded-lg px-4 py-2">
+					<select id="categorySelect">
+						<option value="">Sélectionnez une catégorie</option>
+					</select>
 				</div>
 				<div>
 					<p class="text-xl"><i class="fa-solid fa-calendar-week"></i> how many days? </p>
-					<input type="text" class="rounded-lg px-4 py-2">
+					<select id="daysSelect">
+						<option value="">Sélectionnez le nombre de repas </option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+					</select>
 				</div>
 				<div>
 					<p class="text-xl"><i class="fa-solid fa-earth-europe"></i> where from? </p>
-					<input type="text" class="rounded-lg px-4 py-2  ">
+					<select id="originSelect">
+						<option value="">Sélectionnez une origine</option>
+					</select>
 				</div>
         	</div>
         	<div class="flex items-center justify-center w-full">
@@ -34,23 +46,22 @@
 			<div id="ingredient_container" class="flex flex-col items-center gap-2 h-[20%] w-[80%] bg-[#E8E25B] rounded-xl self-center overflow-auto">
 			</div>
 			<div class="gap-4 justify-center self-center flex w-[80%] ">
-				<button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded w-1/2">Generate</button>
+				<button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold py-2 px-4 rounded w-1/2" id="buttonGenerate">Generate</button>
 				<button class="text-black">
 					<i class="fa-regular fa-bookmark"></i>
 				</button>
 			</div>
 
-			<div class="self-center w-[80%] h-[50%] bg-[#E8E25B] rounded-lg overflow-auto">
+			<div class="self-center w-[80%] h-[50%] bg-[#E8E25B] rounded-lg overflow-auto" id="recipe_container">
 				<div class=" flex items-center gap-2 m-4">
-					<img src="/assets/images/r2d2.png" alt="testImg" class=" w-32 h-32">
-					<div class="pl-10  flex flex-col self-center gap-4">
+					<img src="/assets/images/r2d2.png" alt="testImg" class=" w-32 h-32" id="recipe_img">
+					<div class="pl-10 w-full flex flex-col self-center gap-4">
+						<button class="text-black self-end">
+							<i class="fa-regular fa-bookmark"></i>
+						</button>
 						<p class="w-3/4 text-lg  font-bold">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi praesentium commodi modi quaerat voluptas! Praesentium, voluptatibus? Rerum officiis expedita neque, veniam reiciendis quidem, quibusdam blanditiis nulla corrupti quam quos. Mollitia.
+						R2D2
 						</p>
-						<div class="flex gap-2">
-						<button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold rounded self-center px-2">Add to shopping list</button>
-						<button class="bg-[#AFF099] hover:bg-[#80ee5c] text-black font-bold rounded self-center px-2">Add to meal planner</button>
-						</div>
 					</div>
 				</div>
 			</div>
