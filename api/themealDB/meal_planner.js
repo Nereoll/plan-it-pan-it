@@ -60,9 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch(url);
                 data = await response.json();
             }else{
-                // Si aucun filtre, récupérer TOUS les repas
-                const response = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=");
-                data = await response.json();
+                let meals = [];
+                for (let i = 0; i < count; i++) {
+                    const response = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+                    const randomMealData = await response.json();
+                    if (randomMealData.meals) {
+                        meals.push(randomMealData.meals[0]);
+                    }
+                }
+                data = { meals }; // Stocker les repas obtenus
             }
 
             if (!data.meals) {
