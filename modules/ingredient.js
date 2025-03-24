@@ -1,4 +1,4 @@
-let listIngredients = []; // Declare the variable outside DOMContentLoaded
+let listIngredients = []; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const button = document.querySelector('button');
