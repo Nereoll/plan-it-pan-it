@@ -25,7 +25,9 @@ export function removeFavori(mealId) {
         let favoris = getFavoris();
         favoris = favoris.filter(fav => fav.idMeal !== mealId); // Filtrer pour enlever l'élément
         localStorage.setItem(FAVORIS_KEY, JSON.stringify(favoris)); // Sauvegarde
+        return true;
     }
+    return false;
 }
 
 // 🔹 Vérifier si un meal est dans les favoris

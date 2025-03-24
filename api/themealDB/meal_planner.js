@@ -135,18 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const bookmarkButton = document.createElement('button');
 		bookmarkButton.className = 'text-black self-end';
-        
         if (isFavoris(meal.idMeal)) {
             bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
           } else{
             bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
           }
-      
           // Ajout de l'événement pour gérer le favori
         bookmarkButton.addEventListener('click', () => {
             if (isFavoris(meal.idMeal)) {
-                removeFavori(meal.idMeal);
-                bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+                if (removeFavori(meal.idMeal)){
+                    bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+                };
             } else {
                 addFavori(meal);
                 bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';

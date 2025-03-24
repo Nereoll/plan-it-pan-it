@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ajout de l'événement pour gérer le favori
       bookmarkButton.addEventListener('click', () => {
           if (isFavoris(meal.idMeal)) {
-              removeFavori(meal.idMeal);
-              bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+              if(removeFavori(meal.idMeal)){
+                bookmarkButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+              };
+
           } else {
               addFavori(meal);
               bookmarkButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
